@@ -12,7 +12,6 @@ const burger = (function (){
 
 	function update (updatedItemObject, idNum, callback){
 		let conditionObject = {id: idNum};
-		console.log('conditionObject', conditionObject);
 		return orm.updateOne("burgers", updatedItemObject, conditionObject, callback);
 	}
 
@@ -21,10 +20,6 @@ const burger = (function (){
 		create: create,
 		update: update
 	}
-});
+})();
 
 module.exports = burger;
-
-burger.all (function(result){
-	console.log(result);
-})

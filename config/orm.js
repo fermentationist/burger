@@ -1,5 +1,3 @@
-
-
 const orm = (function(){
 	console.log("orm.js loaded");
 	const connection = require("./connection.js");
