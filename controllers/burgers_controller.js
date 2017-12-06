@@ -4,11 +4,11 @@ const burger = require("../models/burger.js");
 const router = express.Router();
 const path = require("path");
 
-router.get("/", function (req, res){
-	res.sendFile(path.join(__dirname, "../temporary.html"));
-});
+// router.get("/", function (req, res){
+// 	return res.render("index", {burgers: results});
+// });
 
-router.get("/api/all", function (req, res){
+router.get(["/", "/api/all"], function (req, res){
 	console.log("GET /api/all");
 	burger.all(function (results){
 		return res.render("index", {burgers: results});
