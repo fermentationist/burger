@@ -1,13 +1,17 @@
+console.log('burgers_controller.js loaded');
 const express = require("express");
 const burger = require("../models/burger.js");
 const router = express.Router();
+const path = require("path");
 
-console.log('burgers_controller.js loaded');
+router.get("/", function (req, res){
+	res.sendFile(path.join(__dirname, "../temporary.html"));
+});
 
 router.get("/api/all", function (req, res){
 	console.log("GET /api/all");
 	burger.all(function (results){
-		return res.json(results);
+		return res.render("index", {burgers: results});
 	});
 });
 
