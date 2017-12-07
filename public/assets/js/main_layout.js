@@ -21,16 +21,29 @@ $("#postBurger").on("click", function (){
 
 $(document).on("click", ".deleteButton", function (){
 	let id = $(this).attr("id");
+	let devoured = parseInt($(this).attr("devoured"));
+	console.log('devoured', devoured);
 	console.log('id', id);
-
-	$.ajax({
-		url:"delete/" + id,
-		success: function(data){
-		console.log("\nsuccess\n");
-		console.log("data", data);
-		},
-		type: "DELETE"
-	});
-
+	if (devoured){
+		$.ajax({
+			url:"delete/" + id,
+			success: function(data){
+			console.log("\nsuccess\n");
+			console.log("data", data);
+			},
+			type: "DELETE"
+		});
+	}else{
+		$.ajax({
+			url:"update/" + id,
+			data: {devoured: 1},
+			success: function(data){
+			console.log("\nsuccess\n");
+			console.log("data", data);
+			},
+			type: "PUT"
+		});
+	}
 	$(this).remove();
+	location.reload();
 });
