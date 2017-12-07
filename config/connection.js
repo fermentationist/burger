@@ -3,7 +3,7 @@ console.log("connection.js loaded");
 const mysql = require("mysql");
 
 let connection = mysql.createConnection({
-	port: 3306,
+	port: process.env.PORT,
 	host: "us-cdbr-iron-east-05.cleardb.net",//"localhost",
 	database: "heroku_8d5f65f121aa1f8",//"burgers_db",
 	user: "b487ee65f8da86",//"root",
