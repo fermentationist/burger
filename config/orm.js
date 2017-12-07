@@ -65,11 +65,28 @@ const orm = (function(){
 		});
 	}
 
+	function deleteOne(tableName, conditionObject, callback){
+		console.log("Orm.deleteOne called");
+		let condition = objToString(conditionObject);
+		let queryString = `DELETE FROM ${tableName} WHERE ${condition}`;
+		connection.query(queryString, function(err, result){
+			if (err){
+				throw err;
+			}
+			if (callback){
+				return callback(result);
+			}
+			console.log("SUCCESS!!");
+			return console.log(result);
+		});
+	}
+
 	return {
 		connection: connection,
 		selectAll: selectAll,
 		insertOne: insertOne,
-		updateOne: updateOne
+		updateOne: updateOne,
+		deleteOne: deleteOne
 	}
 
 })();

@@ -15,10 +15,16 @@ const burger = (function (){
 		return orm.updateOne("burgers", updatedItemObject, conditionObject, callback);
 	}
 
+	function remove (idNum, callback){
+		let conditionObject = {id: idNum};
+		return orm.deleteOne("burgers", conditionObject, callback);
+	}
+
 	return {
 		all: all,
 		create: create,
-		update: update
+		update: update,
+		remove: remove
 	}
 })();
 

@@ -18,3 +18,19 @@ $("#postBurger").on("click", function (){
 
 
 });
+
+$(document).on("click", ".deleteButton", function (){
+	let id = $(this).attr("id");
+	console.log('id', id);
+
+	$.ajax({
+		url:"delete/" + id,
+		success: function(data){
+		console.log("\nsuccess\n");
+		console.log("data", data);
+		},
+		type: "DELETE"
+	});
+
+	$(this).remove();
+});
