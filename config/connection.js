@@ -4,10 +4,10 @@ const mysql = require("mysql");
 
 let connection = mysql.createConnection({
 	port: 3306,
-	host: "localhost",
-	database: "burgers_db",
-	user: "root",
-	password: process.env.MYSQL_PASSWORD
+	host: "us-cdbr-iron-east-05.cleardb.net",//"localhost",
+	database: "heroku_8d5f65f121aa1f8",//"burgers_db",
+	user: "b487ee65f8da86",//"root",
+	password: "fe8ee5dd"//process.env.MYSQL_PASSWORD
 	});
 
 connection.connect(function(error){
